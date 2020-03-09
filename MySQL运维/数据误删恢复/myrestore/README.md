@@ -14,3 +14,4 @@
     python restore_insert.py binlog.txt 59 > binlog_insert.sql
     
 ## 第五步：执行binlog_insert.sql
+    mysql < binlog_insert.sql
