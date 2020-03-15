@@ -49,15 +49,23 @@
 ## 使用方法举例
 
 - 通过binlog文件方式找出本机 ds_org_merchant.customer_info 表 mysql-bin.000279 32229490 35825015 之间的操作并生成恢复语句
-    ./binlog_rollback -m file -w rollback -M mysql -t 4 -H 127.0.0.1 -P 3306 -u root -p pass -dbs ds_org_merchant -tbs customer_info -sbin mysql-bin.000279 -spos 32229490 -ebin mysql-bin.000279 -epos 35825015 -e -f -r 20 -k -b 100 -l 10  -o /tmp -dj tbs_all_def.json mysql-bin.000279
+```
+./binlog_rollback -m file -w rollback -M mysql -t 4 -H 127.0.0.1 -P 3306 -u root -p pass -dbs ds_org_merchant -tbs customer_info -sbin mysql-bin.000279 -spos 32229490 -ebin mysql-bin.000279 -epos 35825015 -e -f -r 20 -k -b 100 -l 10  -o /tmp -dj tbs_all_def.json mysql-bin.000279```
 
 - 通过binlog文件方式找出本机 ds_org_merchant.customer_info 表 某时间段内的操作并生成恢复语句
-     ./binlog_rollback -m file -w rollback -M mysql -t 4 -H 127.0.0.1 -P 3306 -u root -p pass -dbs ds_org_merchant -tbs customer_info -sdt "2020-03-15 07:30:00" -edt "2020-03-15 08:12:00"  -e -f -r 20 -k -b 100 -l 10  -o /tmp -dj tbs_all_def.json mysql-bin.000283
+```
+./binlog_rollback -m file -w rollback -M mysql -t 4 -H 127.0.0.1 -P 3306 -u root -p pass -dbs ds_org_merchant -tbs customer_info -sdt "2020-03-15 07:30:00" -edt "2020-03-15 08:12:00"  -e -f -r 20 -k -b 100 -l 10  -o /tmp -dj tbs_all_def.json mysql-bin.000283```
+```
 
 - 官方示例
     * 生成前滚SQL与DML报表:
-        ./binlog_rollback.exe -m repl -w 2sql -M mysql -t 4 -mid 3331 -H 127.0.0.1 -P 3306 -u xxx -p xxx -dbs db1,db2 -tbs tb1,tb2 -sbin mysql-bin.000556 -spos 107 -ebin mysql-bin.000559 -epos 4 -e -f -r 20 -k -b 100 -l 10 -o /home/apps/tmp -dj tbs_all_def.json
+    ```
+    ./binlog_rollback.exe -m repl -w 2sql -M mysql -t 4 -mid 3331 -H 127.0.0.1 -P 3306 -u xxx -p xxx -dbs db1,db2 -tbs tb1,tb2 -sbin mysql-bin.000556 -spos 107 -ebin mysql-bin.000559 -epos 4 -e -f -r 20 -k -b 100 -l 10 -o /home/apps/tmp -dj tbs_all_def.json```
+
     * 生成回滚SQL与DML报表:
-        ./binlog_rollback.exe -m file -w rollback -M mysql -t 4 -H 127.0.0.1 -P 3306 -u xxx -p xxx -dbs db1,db2 -tbs tb1,tb2 -tbs tb1,tb2 -sdt "2017-09-28 13:00:00" -edt "2017-09-28 16:00:00" -e -f -r 20 -k -b 100 -l 10  -o /home/apps/tmp -dj tbs_all_def.json mysql-bin.000556
+    ```
+    ./binlog_rollback.exe -m file -w rollback -M mysql -t 4 -H 127.0.0.1 -P 3306 -u xxx -p xxx -dbs db1,db2 -tbs tb1,tb2 -tbs tb1,tb2 -sdt "2017-09-28 13:00:00" -edt "2017-09-28 16:00:00" -e -f -r 20 -k -b 100 -l 10  -o /home/apps/tmp -dj tbs_all_def.json mysql-bin.000556```
+
     * 只生成DML报表:
-        ./binlog_rollback -m file -w stats -M mysql -i 20 -b 100 -l 10 -o /home/apps/tmp mysql-bin.000556
+    ```
+    ./binlog_rollback -m file -w stats -M mysql -i 20 -b 100 -l 10 -o /home/apps/tmp mysql-bin.000556```
