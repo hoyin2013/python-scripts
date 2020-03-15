@@ -1,14 +1,6 @@
 #!/bin/env python
 # -*- encoding: utf-8 -*-
-#-------------------------------------------------------------------------------
-# Name:        restore_insert.py
-# Purpose:     通过Binlog恢复Delete误操作数据
-# Author:      zhoujy
-# Created:     2012-12-25
-# update:      2012-12-25
-# Copyright:   (c) Mablevi 2012
-# Licence:     zjy
-#-------------------------------------------------------------------------------
+
 def read_binlog(file,column_num):
     f=open(file)
     num = '@'+str(column_num)

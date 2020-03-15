@@ -1,4 +1,7 @@
 # 使用方法
+- 从mysql的日志中恢复误删的表数据
+- 只适用于删除的恢复，不适用update或其他场景。
+
 ## 第一步：将binlog的event导出
     mysql -e "show binlog events in 'mysql-bin.000180';" > /tmp/mysql-bin.000180.txt
 
