@@ -23,6 +23,9 @@ git push origin master
 # 创建分支
 git checkout -b branch_name
 
+# 删除
+git rm rm_file_name
+
 # 强制重新同步
 git fetch --all && git reset --hard origin/v1.1 && git pull v1.1
 
