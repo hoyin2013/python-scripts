@@ -19,4 +19,9 @@ git pull origin master
 git add *
 git commit -m ""
 git push origin master  
+
+# 创建分支
+git checkout -b branch_name
+
 ```
+
